@@ -29,8 +29,4 @@ public class CartoesResource {
         return ResponseEntity.created(headerLocation).build();
     }
 
-    @RequestMapping("/rotaDeFallback")
-    public Mono<String> fallback() {
-        return Mono.just("Serviço temporariamente indisponível. Por favor, tente novamente mais tarde.");
-    }
 }

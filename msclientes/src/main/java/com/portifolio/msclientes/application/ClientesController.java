@@ -45,9 +45,4 @@ public class ClientesController {
         return ResponseEntity.ok(optionalCliente);
     }
 
-    @RequestMapping("/rotaDeFallback")
-    public Mono<String> fallback() {
-        return Mono.just("Serviço temporariamente indisponível. Por favor, tente novamente mais tarde.");
-    }
-
 }
