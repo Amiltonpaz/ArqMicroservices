@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.util.Optional;
@@ -42,6 +43,11 @@ public class ClientesController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(optionalCliente);
+    }
+
+    @RequestMapping("/rotaDeFallback")
+    public Mono<String> fallback() {
+        return Mono.just("Serviço temporariamente indisponível. Por favor, tente novamente mais tarde.");
     }
 
 }

@@ -5,6 +5,7 @@ import com.portifolio.mscartoes.domain.Cartao;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import reactor.core.publisher.Mono;
 
 import java.net.URI;
 
@@ -26,5 +27,10 @@ public class CartoesResource {
                 .query("id = {id}")
                 .buildAndExpand(cartao.getId()).toUri();
         return ResponseEntity.created(headerLocation).build();
+    }
+
+    @RequestMapping("/rotaDeFallback")
+    public Mono<String> fallback() {
+        return Mono.just("Serviço temporariamente indisponível. Por favor, tente novamente mais tarde.");
     }
 }
