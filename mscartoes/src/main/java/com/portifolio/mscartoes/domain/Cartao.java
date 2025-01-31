@@ -1,6 +1,6 @@
 package com.portifolio.mscartoes.domain;
 
-import com.portifolio.mscartoes.application.resource.CartaoSaveRequest;
+import com.portifolio.mscartoes.application.representation.CartaoSaveRequest;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

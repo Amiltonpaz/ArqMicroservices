@@ -34,6 +34,12 @@ public class RouteConfiguration {
                                 c.setName("circuitBreakerMscartoes")
                                         .setFallbackUri("forward:/rotaDeFallback")))
                         .uri("lb://mscartoes"))
+
+                .route( r -> r.path("/avaliacoes-credito/**")
+                .filters(f -> f.circuitBreaker( c ->
+                        c.setName("circuitBreakerMsAvaliadorCredito")
+                                .setFallbackUri("forward:/rotaDeFallback")))
+                        .uri("lb://msavaliadorcredito"))
                 .build();
     }
 
