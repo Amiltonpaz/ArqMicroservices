@@ -11,7 +11,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("cartoes")
@@ -30,17 +29,17 @@ public class CartoesResource {
     @PostMapping
     public ResponseEntity cadastraCartoes(@RequestBody CartaoSaveRequest cartaoRequest) {
         Cartao cartao = cartaoRequest.toModel(cartaoRequest);
-
+        Cartao cartaoRetornado = service.createCartao(cartao);
         URI headerLocation = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .query("id = {id}")
-                .buildAndExpand(cartao.getId()).toUri();
+                .buildAndExpand(cartaoRetornado.getId()).toUri();
         return ResponseEntity.created(headerLocation).build();
     }
 
     @GetMapping(params = "renda")
     public ResponseEntity<List<Cartao>> getCartoesRendaAte(@RequestParam Long renda) {
-        List<Cartao> list = service.getCartoesRendaMenorIguel(renda);
+        List<Cartao> list = service.getCartoesRendaMenorIgual(renda);
         return ResponseEntity.ok(list);
     }
 

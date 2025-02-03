@@ -20,7 +20,7 @@ public class CartaoService {
         return repository.save(cartao);
     }
 
-    public List<Cartao> getCartoesRendaMenorIguel(Long renda) {
+    public List<Cartao> getCartoesRendaMenorIgual(Long renda) {
         var rendaBigDecimal = BigDecimal.valueOf(renda);
         return repository.findByRendaLessThanEqual(rendaBigDecimal);
     }

@@ -28,10 +28,11 @@ public class ClientesController {
     @PostMapping
     public ResponseEntity<?> save(@RequestBody ClienteSaveRequest request) {
         Cliente cliente = request.toModel();
+        Cliente clienteRetornado = service.save(cliente);
         URI headerLocation = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .query("cpf={cpf}")
-                .buildAndExpand(cliente.getCpf()).toUri();
+                .buildAndExpand(clienteRetornado.getCpf()).toUri();
         return ResponseEntity.created(headerLocation).build();
     }
 

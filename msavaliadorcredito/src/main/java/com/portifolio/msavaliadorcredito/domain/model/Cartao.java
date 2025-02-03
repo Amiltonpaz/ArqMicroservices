@@ -1,13 +1,14 @@
 package com.portifolio.msavaliadorcredito.domain.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @Data
-public class DadosCliente {
+public class Cartao {
 
     private Long id;
     private String nome;
-    private Integer idade;
-
+    private String bandeira;
+    private BigDecimal limiteBasico;
 }

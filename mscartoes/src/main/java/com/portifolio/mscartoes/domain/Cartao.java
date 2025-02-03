@@ -23,7 +23,12 @@ public class Cartao {
     private BigDecimal limiteBasico;
 
     public Cartao(CartaoSaveRequest cartaoSaveRequest) {
-        this.bandeira = bandeira;
+
+        this.nome = cartaoSaveRequest.getNome();
+        this.bandeira = cartaoSaveRequest.getBandeira();
+        this.renda = cartaoSaveRequest.getRenda();
+        this.limiteBasico = cartaoSaveRequest.getLimiteBasico();
+
     }
 
     public Cartao(String nome, BandeiraCartao bandeira, BigDecimal renda, BigDecimal limiteBasico) {
