@@ -1,0 +1,14 @@
+{
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "queues": [
+    {
+      "name": "emitir-cartao",
+      "vhost": "/",
+      "durable": true
+    }
+  ]
+}

@@ -2,7 +2,9 @@ package com.portifolio.msavaliadorcredito.application;
 
 import com.portifolio.msavaliadorcredito.application.exception.DadosClienteNotFoundException;
 import com.portifolio.msavaliadorcredito.application.exception.ErroComunicacaoMicroservicesException;
+import com.portifolio.msavaliadorcredito.application.exception.ErroSolicitacaoCartaoException;
 import com.portifolio.msavaliadorcredito.domain.model.DadosAvaliacao;
+import com.portifolio.msavaliadorcredito.domain.model.DadosSolicitacaoEmissaoCartao;
 import com.portifolio.msavaliadorcredito.domain.model.RetornoAvalicaoCliente;
 import com.portifolio.msavaliadorcredito.domain.model.SituacaoCliente;
 import lombok.RequiredArgsConstructor;
@@ -49,6 +51,15 @@ import org.springframework.web.bind.annotation.*;
 
         }catch (ErroComunicacaoMicroservicesException e) {
             return ResponseEntity.status(HttpStatus.resolve(e.getStatus())).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("solicitacoes-cartao")
+    public ResponseEntity solicitarCartao(@RequestBody DadosSolicitacaoEmissaoCartao dados) {
+        try {
+            return ResponseEntity.ok(avaliadorCreditoService.solicitarEmissaoCartao(dados));
+        }catch(ErroSolicitacaoCartaoException e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
 }
