@@ -7,12 +7,20 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-
+      httpclient:
+        connect-timeout: 5000  # 5 segundos
+        response-timeout: 10s  # 10 segundos
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8081/realms/avaliadorcreditorealm
+          jwk-set-uri: http://localhost:8081/realms/avaliadorcreditorealm/protocol/openid-connect/token
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
+    io.github.resilience4j: DEBUG
 
 server:
   port: 8080
@@ -21,3 +29,13 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+resilience4j.circuitbreaker:
+  instances:
+    circuitBreakerMscartoes:
+      slowCallDurationThreshold: 2000ms
+      slowCallRateThreshold: 50
+      failureRateThreshold: 60 # Só abre se 60% das requisições falharem
+      slidingWindowSize: 10 # Analisando as últimas 10 requisições
+      waitDurationInOpenState: 10s # Tempo antes de tentar reabrir
+      permittedNumberOfCallsInHalfOpenState: 5
