@@ -22,7 +22,7 @@ jobs:
       - name: Definir JAVA_HOME
         run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
       - name: Executar análise no SonarCloud
-        uses: SonarSource/sonarqube-scan-action@v1.0.0
+        uses: ${{ env.JAVA_HOME }}/bin/java -jar SonarSource/sonarqube-scan-action@v1.0.0
         with:
           projectBaseDir: eurekaserver
         env:
