@@ -19,6 +19,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+      - name: Definir JAVA_HOME
+        run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
@@ -28,6 +30,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_EUREKASERVER }}
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+          JAVA_HOME: ${{ env.JAVA_HOME }}
 
   msavaliadorcredito:
     name: Análise msavaliadorcredito
