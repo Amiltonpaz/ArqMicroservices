@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
@@ -41,7 +41,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
@@ -64,7 +64,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
@@ -87,7 +87,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
@@ -110,7 +110,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
