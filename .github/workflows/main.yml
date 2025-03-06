@@ -26,5 +26,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-            projectKey=ArqMicroservices
-            organization=Portifolio
+          args: >
+            -Dsonar.projectKey=ArqMicroservices
+            -Dsonar.organization=Portifolio
