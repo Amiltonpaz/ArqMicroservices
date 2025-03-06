@@ -17,7 +17,7 @@ jobs:
       - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'adopt'
           java-version: '11'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
@@ -40,7 +40,7 @@ jobs:
       - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'adopt'
           java-version: '11'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
@@ -63,7 +63,7 @@ jobs:
       - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'adopt'
           java-version: '11'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
@@ -86,7 +86,7 @@ jobs:
       - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'adopt'
           java-version: '11'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
@@ -109,7 +109,7 @@ jobs:
       - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'adopt'
           java-version: '11'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
