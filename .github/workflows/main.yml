@@ -1,0 +1,31 @@
+name: Análise SonarCloud
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checar código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Desabilitar clones superficiais para melhor relevância na análise
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+      - name: Executar análise no SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=ArqMicroservices \
+            -Dsonar.organization=Portifolio \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
