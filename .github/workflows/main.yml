@@ -32,5 +32,5 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=amiltonpaz_eurekaserver
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_EUREKASERVER }}
+        run: mvn -f eurekaserver/pom.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=amiltonpaz_eurekaserver
