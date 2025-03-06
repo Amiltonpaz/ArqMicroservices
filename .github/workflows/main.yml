@@ -17,8 +17,8 @@ jobs:
       - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'adopt'
-          java-version: '11'
+          distribution: 'temurin'
+          java-version: '17'
       - name: Executar análise no SonarCloud
         uses: SonarSource/sonarqube-scan-action@v1.0.0
         with:
