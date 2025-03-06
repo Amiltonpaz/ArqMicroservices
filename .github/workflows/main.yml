@@ -25,6 +25,7 @@ jobs:
           projectBaseDir: ArqMicroservices/eurekaserver
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_EUREKASERVER }}
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
 
@@ -47,6 +48,7 @@ jobs:
           projectBaseDir: ArqMicroservices/msavaliadorcredito
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_MSAVALIADORCREDITO }}
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
 
@@ -69,6 +71,7 @@ jobs:
           projectBaseDir: ArqMicroservices/mscartoes
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_MSCARTOES }}
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
 
@@ -91,6 +94,7 @@ jobs:
           projectBaseDir: ArqMicroservices/msclientes
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_MSCLIENTES }}
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
 
@@ -113,5 +117,6 @@ jobs:
           projectBaseDir: ArqMicroservices/mscloudgateway
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_MSCLOUDGATEWAY }}
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
