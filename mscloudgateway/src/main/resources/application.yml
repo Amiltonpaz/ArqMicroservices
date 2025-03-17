@@ -16,6 +16,7 @@ spring:
         jwt:
           issuer-uri: http://localhost:8081/realms/avaliadorcreditorealm
           jwk-set-uri: http://localhost:8081/realms/avaliadorcreditorealm/protocol/openid-connect/token
+
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG

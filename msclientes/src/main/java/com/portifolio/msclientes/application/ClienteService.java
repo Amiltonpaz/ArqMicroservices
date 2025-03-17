@@ -3,9 +3,9 @@ package com.portifolio.msclientes.application;
 import com.portifolio.msclientes.infra.repository.ClienteRepository;
 import com.portifolio.msclientes.domain.Cliente;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Optional;
 
 @Service
@@ -19,7 +19,9 @@ public class ClienteService {
         return repository.save(cliente);
     }
 
+    @Cacheable("clientes")
     public Optional<Cliente> getByCpf(String cpf) {
+        System.out.println("Buscando...");
         return repository.findByCpf(cpf);
     }
 
