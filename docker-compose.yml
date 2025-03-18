@@ -32,6 +32,16 @@ services:
       - redis_data:/data
     command: redis-server --save 1 1 --loglevel warning
     restart: always
+    depends_on:
+      - sysctl_init
+  
+  sysctl_init:
+    image: alpine:latest
+    container_name: sysctl_init
+    command: sh -c "sysctl -w vm.overcommit_memory=1"
+    privileged: true
+    entrypoint: ["/bin/sh", "-c", "sysctl -w vm.overcommit_memory=1 && tail -f /dev/null"]
+    
 volumes:
   redis_data:
     driver: local
